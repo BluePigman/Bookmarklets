@@ -1,38 +1,30 @@
 # Bookmarklets
-Useful bookmarklets. Save the code as a bookmark, and then click it to run. An easy way is to bookmark a random site and then edit the URL with the code.
-## X → Nitter
-Redirects from X.com (Twitter) to Nitter.net. Useful for seeing replies without an account.
+Useful bookmarklets. Save the code as a bookmark, and then click it to run. An easy way to make a bookmarklet is to bookmark any webpage and then edit the bookmark's URL with the code.
 
-**Code:**
+## X → Nitter
+Redirects from X.com (Twitter) to Nitter.net. View replies without an account.
+
 ```javascript
-javascript:(function(){ 
-  var url = window.location.href;  
-  var newUrl = url.replace(/^https:\/\/x\.com\//, 'https://nitter.net/');  
-  window.location.href = newUrl;
-})();
+javascript:location=location.href.replace(/^https:\/\/x\.com\//,'https://nitter.net/');
+```
+
+## Reddit -> old.reddit.com
+View NSFW posts without an account.
+
+```javascript
+javascript:location=location.href.replace('www.reddit.com','old.reddit.com');
+```
+
+## Wayback Machine
+Searches current URL into the Wayback Machine.
+
+```javascript
+javascript:location="https://web.archive.org/web/20250000000000*/"+location.href;
 ```
 
 ## Instagram -> Imginn
 Alternate instagram viewer
 
-
-**Code:**
 ```javascript
-javascript:(function() {  var url = window.location.href;  url = url.replace("instagram.com", "imginn.com");  var match = url.match(/(?:\/p\/|\/reel\/)([^/?]+)/);  if (match) {    var newUrl = `https://imginn.com/p/${match[1]}/`;    window.location.href = newUrl;  } else {    window.location.href = url;  }})();
-```
-
-## Reddit -> old.reddit.com
-Useful for seeing NSFW content without an account.
-
-**Code:**
-```javascript
-javascript:(function(){  var url = window.location.href;  if (url.includes('reddit.com')) {    var newUrl = url.replace('www.reddit.com', 'OLD.reddit.com');    window.location.href = newUrl;  }})(); 
-```
-
-## Wayback machine
-Searches current URL into the Wayback Machine.
-
-**Code:**
-```javascript
-javascript:(function(){var currentUrl = window.location.href; var prefix = "https://web.archive.org/web/20250000000000*/"; window.location.href = prefix + currentUrl;})();
+javascript:location=location.href.match(/(?:\/p\/|\/reel\/)([^/?]+)/)?`https://imginn.com/p/${location.href.match(/(?:\/p\/|\/reel\/)([^/?]+)/)[1]}/`:location.href.replace("instagram.com","imginn.com");
 ```

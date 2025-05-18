@@ -19,7 +19,7 @@ javascript:location=location.href.replace('www.reddit.com','old.reddit.com');
 Searches current URL into the Wayback Machine.
 
 ```javascript
-javascript:location.href='http://web.archive.org/web/*/'+document.location.href;
+javascript:location="https://web.archive.org/web/*/"+location.href;
 ```
 
 ## Instagram -> Imginn

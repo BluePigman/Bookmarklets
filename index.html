@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmarklets</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+        
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.5;
+            background-color: #28283d; /* Lighter dark background */
+            color: #f0f6fc;
+        }
+        
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #ffffff;
+                color: #24292f;
+            }
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .bookmarklet {
+            margin-bottom: 15px;
+        }
+        
+        .drag-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #238636;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .drag-link:hover {
+            background-color: #2ea043;
+        }
+        
+        .instructions {
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Useful Bookmarklets</h1>
+    
+    <p class="instructions">Drag these buttons to your bookmarks bar. Click a bookmarklet when you're on the relevant site.</p>
+    
+    <div class="bookmarklet">
+        <p><b>X → Nitter:</b> 
+        <a class="drag-link" href="javascript:location=location.href.replace(/^https:\/\/x\.com\//,'https://nitter.net/');">X → Nitter</a>
+        </p>
+    </div>
+    
+    <div class="bookmarklet">
+        <p><b>Instagram → Imginn:</b> 
+        <a class="drag-link" href="javascript:location=location.href.match(/(?:\/p\/|\/reel\/)([^/?]+)/)?`https://imginn.com/p/${location.href.match(/(?:\/p\/|\/reel\/)([^/?]+)/)[1]}/`:location.href.replace('instagram.com','imginn.com');">Instagram → Imginn</a>
+        </p>
+    </div>
+    
+    <div class="bookmarklet">
+        <p><b>Reddit → Old Reddit:</b> 
+        <a class="drag-link" href="javascript:location=location.href.replace('www.reddit.com','old.reddit.com');">Reddit → Old Reddit</a>
+        </p>
+    </div>
+    
+    <div class="bookmarklet">
+        <p><b>Wayback Machine:</b> 
+        <a class="drag-link" href="javascript:location='https://web.archive.org/web/*/'+location.href;">Wayback Machine</a>
+        </p>
+    </div>
+</body>
+</html>
